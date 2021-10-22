@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.1433
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopBridge_eCommerceApp", "ShopBridge_eCommerceApp\ShopBridge_eCommerceApp.csproj", "{8E6D6E07-B4B0-470B-88CC-75EA6B16FBDC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingAllCases", "TestingAllCases\TestingAllCases.csproj", "{6FE280DB-09B5-4ECF-9C0C-A98E6AEA4F10}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{8E6D6E07-B4B0-470B-88CC-75EA6B16FBDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E6D6E07-B4B0-470B-88CC-75EA6B16FBDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E6D6E07-B4B0-470B-88CC-75EA6B16FBDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FE280DB-09B5-4ECF-9C0C-A98E6AEA4F10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FE280DB-09B5-4ECF-9C0C-A98E6AEA4F10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FE280DB-09B5-4ECF-9C0C-A98E6AEA4F10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FE280DB-09B5-4ECF-9C0C-A98E6AEA4F10}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
