@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using ShopBridge_eCommerceApp.Models;
 
 namespace ShopBridge_eCommerceApp.Controllers
@@ -17,14 +18,14 @@ namespace ShopBridge_eCommerceApp.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "";
 
             return View();
         }
@@ -42,9 +43,9 @@ namespace ShopBridge_eCommerceApp.Controllers
             {
                 Session["Username"] = tb1.Name.ToString();
                 Session["Password"] = tb1.Password.ToString();
-                ViewBag.name = Session["Username"];
+              //  ViewBag.name = Session["Username"];
 
-                return RedirectToAction("index");
+                return RedirectToAction("Create", "ProductDetails");
             }
             else
             {
@@ -54,5 +55,6 @@ namespace ShopBridge_eCommerceApp.Controllers
             return View();
 
         }
+       
     }
 }

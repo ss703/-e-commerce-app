@@ -129,6 +129,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductDetailsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -150,6 +151,24 @@
     <Compile Include="Models\ProductAdminLogin.cs">
       <DependentUpon>Adminlogin.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ProductDetail.cs">
+      <DependentUpon>ProductDetails.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProductDetails.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductDetails.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProductDetails.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductDetails.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProductDetails.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductDetails.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -161,6 +180,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="laptop.jpg" />
     <Content Include="Models\Adminlogin.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Adminlogin.Context.cs</LastGenOutput>
@@ -171,6 +191,16 @@
       <DependentUpon>Adminlogin.edmx</DependentUpon>
       <LastGenOutput>Adminlogin.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\ProductDetails.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ProductDetails.edmx</DependentUpon>
+      <LastGenOutput>ProductDetails.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ProductDetails.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ProductDetails.edmx</DependentUpon>
+      <LastGenOutput>ProductDetails.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Models\Adminlogin.edmx">
@@ -179,6 +209,13 @@
     </EntityDeploy>
     <Content Include="Models\Adminlogin.edmx.diagram">
       <DependentUpon>Adminlogin.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\ProductDetails.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ProductDetails.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ProductDetails.edmx.diagram">
+      <DependentUpon>ProductDetails.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -206,6 +243,12 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Admin.cshtml" />
+    <Content Include="Views\ProductDetails\Create.cshtml" />
+    <Content Include="Views\ProductDetails\Delete.cshtml" />
+    <Content Include="Views\ProductDetails\Details.cshtml" />
+    <Content Include="Views\ProductDetails\Edit.cshtml" />
+    <Content Include="Views\ProductDetails\Index.cshtml" />
+    <Content Include="Views\Shared\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
