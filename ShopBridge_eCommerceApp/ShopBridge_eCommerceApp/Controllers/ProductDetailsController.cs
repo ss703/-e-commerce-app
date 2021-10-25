@@ -4,9 +4,15 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
+using Newtonsoft.Json;
 using ShopBridge_eCommerceApp.Models;
+ 
 
 namespace ShopBridge_eCommerceApp.Controllers
 {
@@ -122,6 +128,68 @@ namespace ShopBridge_eCommerceApp.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        string Baseurl = "http://localhost:50986/";
+        public async Task<ActionResult> List()
+        {
+            List<ProductAdminLogin> productInfo = new List<ProductAdminLogin>();
+            using (var client = new HttpClient())
+            {
+                //Passing service base url
+                client.BaseAddress = new Uri(Baseurl);
+                client.DefaultRequestHeaders.Clear();
+                //Define request data format
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                //Sending request to find web api REST service resource GetAllEmployees using HttpClient
+                HttpResponseMessage Res = await client.GetAsync("api/ProductDeatil/GetAllEmployees");
+                //Checking the response is successful or not which is sent using HttpClient
+                if (Res.IsSuccessStatusCode)
+                {
+                    //Storing the response details recieved from web api
+                    var productResponse = Res.Content.ReadAsStringAsync().Result;
+                    //Deserializing the response recieved from web api and storing into the Employee list
+                    productInfo = JsonConvert.DeserializeObject<List<ProductAdminLogin>>(productResponse);
+                }
+                //returning the employee list to view
+                return View(productInfo);
+            }
+
+        }
+        public ActionResult Search(string search, string SearchItem, string searchDate)
+        {
+            ThinkBridgeEntities1 db1 = new ThinkBridgeEntities1();
+            var model = new List<ProductDetail>();
+           
+            try
+            {
+                if (search != null && search != "")
+                {
+                    if (SearchItem == "1")
+                    {
+                        model = db1.ProductDetails.Where(x => x.Companyname == search).ToList();
+                    }
+                    else if (SearchItem == "2")
+                    {
+                        model = db1.ProductDetails.Where(x => x.ProductName == search).ToList();
+                    }
+
+
+                }
+            }
+            finally
+            {
+                Console.WriteLine("No result found with respect to this {0}",SearchItem);
+            }
+
+
+            return View(model);
+        }
+        [Authorize]
+        [HttpPost]
+        public ActionResult signoff()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Create", "Home");
         }
     }
 }

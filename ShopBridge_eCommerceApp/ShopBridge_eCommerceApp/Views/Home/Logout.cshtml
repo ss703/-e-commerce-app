@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Logout";
+}
+
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("Logout", "Home", FormMethod.Post, new { id = "logoutForm" }))
+    {
+        <a href="javascript:document.getElementById('logoutForm').submit()">Logout</a>
+    }
+}
+<br />
+<a href="~/Doctors/search">Click here to go next</a>
+

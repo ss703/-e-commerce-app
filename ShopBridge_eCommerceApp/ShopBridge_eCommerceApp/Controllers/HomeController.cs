@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using Newtonsoft.Json;
 using ShopBridge_eCommerceApp.Models;
 
 namespace ShopBridge_eCommerceApp.Controllers
@@ -55,6 +59,18 @@ namespace ShopBridge_eCommerceApp.Controllers
             return View();
 
         }
-       
+        
+        [Authorize]
+        public ActionResult Logout()
+        {
+            return View();
+        }
+
+
+
     }
 }
+
+
+       
+    

@@ -1,0 +1,71 @@
+﻿@model IEnumerable<ShopBridge_eCommerceApp.Models.ProductDetail>
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Search</h2>
+
+<p style="text-align:center">
+    @using (Html.BeginForm("Search", "ProductDetails", FormMethod.Get))
+    {
+        <b>
+            Search by
+
+            @Html.DropDownList("SearchItem", new List<SelectListItem>
+            {
+
+                  new SelectListItem { Text = "Companyname", Value = "1", Selected=true},
+                  new SelectListItem { Text = "ProductName", Value = "2"},
+
+
+            }, "Select Search-item")
+        </b>
+        @Html.TextBox("search") <input type="submit" value=" Search" class="btn btn-dark btn-sm" />
+        <notag>&nbsp; &nbsp; &nbsp;</notag>
+
+
+        <notag>&nbsp; &nbsp; &nbsp;</notag>
+    }
+
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Companyname)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Companyname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ProductId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ProductId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ProductId })
+                    </td>
+                </tr>
+            }
+
+        </table>
